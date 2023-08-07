@@ -30,3 +30,36 @@ Content-Type: application/json
     "autor":"Pablo Veric",
     "anioPublicacion": 2000
 }
+
+###obteniendo todas las estudiantes
+GET http://localhost:4000/student
+
+###obteniendo un estudiante
+GET http://localhost:4000/student/0705546596
+
+###creando un estudiante
+POST http://localhost:4000/student
+Content-Type: application/json
+
+{
+    "cedula": "0705546596",
+    "nombreEstudiante":"Jorge",
+    "apellidoEstudiante":"Santana",
+    "sexo":"M",
+    "fechaNacimiento": "1998-03-28"
+}
+
+###eliminando una  estudiante
+DELETE  http://localhost:4000/student/0705546596
+
+###actulizando un estudiante
+PUT http://localhost:4000/student/0705546596
+Content-Type: application/json
+
+{
+    "cedula":"0705546596",
+    "nombreEstudiante":"Jorge",
+    "apellidoEstudiante":"Santana",
+    "sexo":"M",
+    "fechaNacimiento": "1998-03-29"
+}
