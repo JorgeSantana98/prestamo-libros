@@ -43,11 +43,11 @@ POST http://localhost:4000/student
 Content-Type: application/json
 
 {
-    "cedula": "0705546596",
-    "nombreEstudiante":"Jorge",
-    "apellidoEstudiante":"Santana",
+    "cedula": "0704749523",
+    "nombreEstudiante":"Alberto",
+    "apellidoEstudiante":"Morno",
     "sexo":"M",
-    "fechaNacimiento": "1998-03-28"
+    "fechaNacimiento": "1997-04-18"
 }
 
 ###eliminando una  estudiante
@@ -78,8 +78,8 @@ POST http://localhost:4000/prestamo
 Content-Type: application/json
 
 {
-    "cedula": "0705546539",
-    "codPublications":"2",
+    "cedula": "0705546596",
+    "codPublications":"10",
     "fechaEntrega":"2023/08/09"
 }
 
