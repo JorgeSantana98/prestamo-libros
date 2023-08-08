@@ -1,12 +1,16 @@
 import express from "express";
+import cors from 'cors';
 import { PORT } from "./config.js";
+
 import indexRoutes from "./routes/index.routes.js";
 import taskRoutes from "./routes/tasks.routes.js";
 import estudianteRoutes from "./routes/estudiante.routes.js";
 import prestamoRoutes from "./routes/prestamo.routes.js";
 
+
 const app = express();
 
+app.use(cors()); //permitir que se conecte cualquier servidor
 app.use(express.json())//procesar los datos que vienen del cliente
 
 app.use(indexRoutes);
