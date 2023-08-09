@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LibrosPage />} />
         <Route path="/new" element={<LibrosForm />} />
+        <Route path="/edit/:id" element={<LibrosForm />} />
         {/* Para todas las paginas que no se han encontrado */}
         <Route path="*" element={<NotFound />} />
       </Routes>

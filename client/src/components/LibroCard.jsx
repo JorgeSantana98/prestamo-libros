@@ -1,8 +1,10 @@
 import { useLibros } from "../context/LibroProvider";
+import { useNavigate } from "react-router-dom";
 
 function LibroCard({ libro }) {
   const{deleteLibro}=useLibros()
-
+  const navigate = useNavigate();
+  
   return (
     <div>
       <h1>{libro.categoria}</h1>
@@ -15,7 +17,7 @@ function LibroCard({ libro }) {
       <button onClick={() => deleteLibro(libro.codPublications)}>
         Delete
       </button>
-      <button>Edit</button>
+      <button onClick={() => navigate(`/edit/${libro.codPublications}`)}>Edit</button>
     </div>
   );
 }
