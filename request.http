@@ -79,7 +79,7 @@ Content-Type: application/json
 
 {
     "cedula": "0705546596",
-    "codPublications":"10",
+    "codPublications":"18",
     "fechaEntrega":"2023/08/09"
 }
 
