@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { getLibrosRequest, deleteLibroRequest } from "../api/libros.api";
+import { getLibrosRequest, deleteLibroRequest, createLibrosRequest } from "../api/libros.api";
 import { LibroContext } from "./LibroContext";
 
 export const useLibros = () =>{
@@ -12,11 +12,21 @@ export const useLibros = () =>{
 
 export const LibroContextProvider = ({children}) => {
   const [libros, setLibros] = useState([]);
+
   async function loadLibros() {
     const response = await getLibrosRequest();
     setLibros(response.data);
   }
 
+  const createLibro = async(libro) =>{
+    try {
+      const response = await createLibrosRequest(libro);
+      console.log(response);
+      // setLibros([...libro, response.data]); //Para mostrar automaticamente al insertar un libro
+    } catch (error) {
+      console.log(error);
+    }
+  }
   const deleteLibro = async (id) => {
     try {
       const response = await deleteLibroRequest(id);
@@ -28,7 +38,7 @@ export const LibroContextProvider = ({children}) => {
   };
 
   return (
-    <LibroContext.Provider value={{ libros, loadLibros, deleteLibro}}>
+    <LibroContext.Provider value={{ libros, loadLibros, deleteLibro, createLibro}}>
       {children}
     </LibroContext.Provider>
   );

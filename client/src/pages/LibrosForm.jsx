@@ -1,7 +1,9 @@
 import { Form, Formik } from "formik";
-import { createLibrosRequest } from "../api/libros.api";
+import { useLibros } from "../context/LibroProvider";
 
 function LibrosForm() {
+
+  const {createLibro} = useLibros()
   return (
     <div>
       <Formik
@@ -14,13 +16,8 @@ function LibrosForm() {
         }}
         onSubmit={async (values, actions) => {
           console.log(values);
-          try {
-            const response = await createLibrosRequest(values);
-            console.log(response);
-            actions.resetForm();
-          } catch (error) {
-            console.log(error);
-          }
+          createLibro(values); //usamos createLibro de LibroProvider
+          actions.resetForm();
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => ( //Cada vez que el usuario vaya escribiendo se van llenando los estados de initialValues
