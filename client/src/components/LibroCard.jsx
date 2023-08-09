@@ -1,5 +1,6 @@
 import { deleteLibroRequest } from "../api/libros.api";
 
+
 function LibroCard({ libro }) {
   const handleDelete = async (id) => {
     try {

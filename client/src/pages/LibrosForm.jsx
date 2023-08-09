@@ -1,12 +1,11 @@
 import { Form, Formik } from "formik";
 import { createLibrosRequest } from "../api/libros.api";
-import { LibroContext } from "../context/LibroContext";
-import { useContext } from "react";
+import { useLibros } from "../context/LibroContext";
 
 function LibrosForm() {
 
-  const {text} = useContext(LibroContext)
-  console.log(text)
+  const {text,x} = useLibros()
+  console.log(text,x)
   return (
     <div>
       <Formik

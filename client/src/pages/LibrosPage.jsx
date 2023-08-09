@@ -1,14 +1,11 @@
-import { useEffect, useState } from "react";
-import { getLibrosRequest } from "../api/libros.api";
+import { useEffect } from "react";
 import LibroCard from "../components/LibroCard";
+import { useLibros } from "../context/LibroContext";
 
 function LibrosPage() {
-  const [libros, setLibros] = useState([]);
+  const {libros, loadLibros} = useLibros();
+  
   useEffect(() => {
-    async function loadLibros() {
-      const response = await getLibrosRequest();
-      setLibros(response.data);
-    }
     loadLibros();
   }, []);
 
