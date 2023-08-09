@@ -7,7 +7,6 @@ import taskRoutes from "./routes/tasks.routes.js";
 import estudianteRoutes from "./routes/estudiante.routes.js";
 import prestamoRoutes from "./routes/prestamo.routes.js";
 
-
 const app = express();
 
 app.use(cors()); //permitir que se conecte cualquier servidor
