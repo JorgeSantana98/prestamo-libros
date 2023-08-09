@@ -5,3 +5,6 @@ export const getLibrosRequest = async () =>
 
 export const createLibrosRequest = async (libro) =>
   await axios.post("http://localhost:4000/tasks", libro); //Ojo aqui no estoy poniendo "{]" y solo por eso no pongo return
+
+export const deleteLibroRequest = async(id)=>
+  await axios.delete(`http://localhost:4000/tasks/${id}`);

@@ -11,14 +11,17 @@ function LibrosPage() {
     }
     loadLibros();
   }, []);
+
+  function renderMain() {
+    if (libros.length === 0) return <h1>No Publicaciones aun</h1>
+    return libros.map((libro) => (<LibroCard libro={libro} key={libro.codPublications} />
+    ));
+  }
+
   return (
     <div>
       <h1>Libros</h1>
-      {
-        libros.map((libro) =>(
-          <LibroCard libro={libro} key={libro.codPublications} />
-        ))
-      }
+      {renderMain()}
     </div>
   );
 }
