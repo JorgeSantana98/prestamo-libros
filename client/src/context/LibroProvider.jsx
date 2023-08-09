@@ -20,6 +20,7 @@ export const LibroContextProvider = ({children}) => {
   const deleteLibro = async (id) => {
     try {
       const response = await deleteLibroRequest(id);
+      setLibros(libros.filter(libro => libro.codPublications !== id)) //Eliminar automaticamente de la interfaz al eliminar
       console.log(response);
     } catch (error) {
       console.log(error);
