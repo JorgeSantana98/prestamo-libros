@@ -1,15 +1,8 @@
-import { deleteLibroRequest } from "../api/libros.api";
-
+import { useLibros } from "../context/LibroProvider";
 
 function LibroCard({ libro }) {
-  const handleDelete = async (id) => {
-    try {
-      const response = await deleteLibroRequest(id);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const{deleteLibro}=useLibros()
+
   return (
     <div>
       <h1>{libro.categoria}</h1>
@@ -19,7 +12,7 @@ function LibroCard({ libro }) {
       <h2>{libro.autor}</h2>
       <h2>{libro.anioPublicacion}</h2>
       <span>{libro.prestado == 0 ? "✔️" : "❌"}</span>
-      <button onClick={() => handleDelete(libro.codPublications)}>
+      <button onClick={() => deleteLibro(libro.codPublications)}>
         Delete
       </button>
       <button>Edit</button>

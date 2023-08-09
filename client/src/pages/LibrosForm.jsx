@@ -1,11 +1,7 @@
 import { Form, Formik } from "formik";
 import { createLibrosRequest } from "../api/libros.api";
-import { useLibros } from "../context/LibroContext";
 
 function LibrosForm() {
-
-  const {text,x} = useLibros()
-  console.log(text,x)
   return (
     <div>
       <Formik
